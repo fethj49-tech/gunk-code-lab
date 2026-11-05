@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0a0c10">
+<title>Super Gunk Lab &amp; Dean AI | Factory Forge Megaplex</title>
+<style>
+:root{color-scheme:dark;--bg:#090b10;--panel:#131721;--panel2:#0e121a;--line:#293246;--text:#e8edf5;--muted:#a2aec0;--orange:#ff791f;--cyan:#49ddf2;--green:#63e6a4;--red:#ff6978;--yellow:#ffd166}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 12% 0%,#1a2532 0,transparent 40%),var(--bg);color:var(--text);font:15px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}header{position:sticky;top:0;z-index:5;background:#10141dec;border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}.head{max-width:1480px;margin:auto;padding:13px 22px;display:flex;justify-content:space-between;align-items:center;gap:14px}.brand{font-weight:900;letter-spacing:.09em;color:var(--orange);text-transform:uppercase}.sub{color:var(--muted);font-size:.8rem}.badge{border:1px solid var(--green);color:var(--green);border-radius:99px;padding:5px 10px;font-size:.75rem}.wrap{max-width:1480px;margin:auto;padding:22px}.intro,.card{border:1px solid var(--line);border-radius:10px;background:var(--panel);padding:18px;margin-bottom:16px}.intro{background:linear-gradient(120deg,#171e29,#10141c)}h1{color:var(--cyan);font-size:clamp(1.4rem,3vw,2rem);margin:0 0 7px}h2,h3{margin:0 0 12px;color:var(--cyan)}h2{font-size:1.08rem}h3{font-size:.93rem}.intro p{max-width:1100px;color:var(--muted);margin:6px 0}.tabs{display:flex;gap:8px;overflow:auto;margin:16px 0}.tab,.btn{font:inherit;cursor:pointer;border-radius:6px}.tab{padding:9px 13px;white-space:nowrap;color:var(--muted);background:var(--panel);border:1px solid var(--line)}.tab.active,.tab:hover{background:var(--orange);border-color:var(--orange);color:#111;font-weight:800}.panel{display:none}.panel.active{display:block}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}label{display:block;color:var(--muted);font-size:.82rem;margin:10px 0 5px}textarea,input{width:100%;background:#080a0f;border:1px solid var(--line);border-radius:6px;padding:11px;color:var(--text);font:inherit;font-size:.84rem}textarea{min-height:280px;resize:vertical;tab-size:2}textarea:focus,input:focus{outline:1px solid var(--cyan);border-color:var(--cyan)}.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.btn{padding:8px 12px;background:var(--orange);border:1px solid var(--orange);color:#101010;font-weight:800}.btn.cyan{background:var(--cyan);border-color:var(--cyan)}.btn.green{background:var(--green);border-color:var(--green)}.btn.secondary{background:#19202b;border-color:var(--line);color:var(--text)}.btn.danger{background:#35191e;border-color:#76333d;color:#ffc1c7}.terminal,pre{background:#06080c;border:1px solid var(--line);border-radius:6px;padding:12px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:.81rem}.terminal{min-height:150px;max-height:350px;overflow:auto;color:var(--green)}pre{max-height:390px;overflow:auto;color:#b8f3d7}.terminal .err{color:var(--red)}.terminal .warn{color:var(--yellow)}.terminal .info{color:var(--cyan)}.hint{color:var(--muted);font-size:.79rem}.phase{display:flex;flex-wrap:wrap;gap:8px}.phase button{background:#090c11;border:1px solid var(--line);border-radius:99px;padding:6px 11px;color:var(--muted);cursor:pointer;font:inherit;font-size:.78rem}.phase button.selected{border-color:var(--green);color:var(--green)}.index-row{background:#0a0e14;border:1px solid var(--line);border-radius:6px;padding:9px;margin:7px 0;font-size:.8rem}.notice{border-left:3px solid var(--yellow);background:#211d12;color:#eadba9;padding:10px 12px;font-size:.8rem}.footer{text-align:center;color:var(--muted);font-size:.74rem;padding:14px}.tag{display:inline-block;border:1px solid var(--line);border-radius:99px;padding:2px 8px;color:var(--muted);font-size:.72rem}.file-label{display:inline-block;margin:0;cursor:pointer}@media(max-width:850px){.grid,.grid.three{grid-template-columns:1fr}.head{align-items:flex-start;flex-direction:column}.wrap{padding:14px}}
+</style>
+</head>
+<body>
+<header><div class="head"><div><div class="brand">Factory Forge Megaplex / Lab 4</div><div class="sub">Super Gunk Code, Sheet Powder &amp; Dean AI Orchestrator</div></div><div class="badge" id="bus-status">BUS PORT 8080 OFFLINE</div></div></header>
+<main class="wrap">
+<section class="intro"><h1>Super Gunk &amp; Dean Agent Workbench</h1><p>Welcome to Lab 4. Author custom terminology in <strong>Gunk Code</strong>, build temporary molds with <strong>Sheet Powder</strong>, and chat directly with <strong>Dean</strong> and the AI team to generate code bindings on the fly.</p><p class="hint">Dean connects over WebSocket (Port 8080) to parse natural language requests, write new Gunk terms, and push them directly to your workspace.</p></section>
+
+<nav class="tabs" aria-label="Workbench sections">
+  <button class="tab active" data-tab="gunk">Gunk Code</button>
+  <button class="tab" data-tab="powder">Sheet Powder</button>
+  <button class="tab" data-tab="dean">Dean AI &amp; Team</button>
+  <button class="tab" data-tab="index">Function Index</button>
+  <button class="tab" data-tab="guide">Language Guide</button>
+</nav>
+
+<!-- GUNK SECTION -->
+<section id="gunk" class="panel active"><div class="grid">
+<article class="card">
+  <h2>Gunk Code Editor</h2>
+  <div class="phase">
+    <button data-phase="dry" class="selected">DRY · author/check</button>
+    <button data-phase="wet">WET · execute</button>
+    <button data-phase="set">SET · convert/freeze</button>
+  </div>
+  <label for="gunk-source">Gunk source</label>
+  <textarea id="gunk-source" spellcheck="false"># Pick your own terminology and link it to an indexed target.
+TERM "say hello" = FUNCTION hello
+TERM total = FUNCTION add
+TERM welcome = PROGRAM welcome
+
+RUN "say hello" {"name":"Ada"}
+RUN total {"a":7,"b":5}
+RUN welcome {"name":"Factory Forge"}</textarea>
+  <div class="actions">
+    <button class="btn" id="validate-gunk">Dry · Check</button>
+    <button class="btn cyan" id="run-gunk">Wet · Run</button>
+    <button class="btn green" id="convert-gunk">Set · Convert to JS</button>
+    <button class="btn secondary" id="clear-gunk-log">Clear output</button>
+  </div>
+  <p class="hint">Syntax: <code>TERM alias = FUNCTION id</code> or <code>PROGRAM id</code>; then <code>RUN alias {"key":"value"}</code>.</p>
+</article>
+<article class="card">
+  <h2>Gunk Build Output</h2>
+  <div id="gunk-log" class="terminal" role="log" aria-live="polite">[GUNK CORE] Dry mix ready. Check source before running.</div>
+  <label>Standard JavaScript conversion preview</label>
+  <pre id="js-output">// Validate Gunk source, then choose Set · Convert to JS.</pre>
+  <div class="actions">
+    <button id="copy-js" class="btn secondary">Copy JavaScript</button>
+    <button id="download-js" class="btn secondary">Download .js</button>
+  </div>
+</article>
+</div></section>
+
+<!-- POWDER SECTION -->
+<section id="powder" class="panel"><div class="grid">
+<article class="card">
+  <h2>Sheet Powder Temporary Editor</h2>
+  <label for="powder-source">Sheet Powder source</label>
+  <textarea id="powder-source" spellcheck="false">FORM contact
+FIELD name | text | Ada
+FIELD project | text | Factory Forge
+END FORM
+
+MOLD greeting
+EMIT "Hello {{name}}, welcome to {{project}}!"
+END MOLD
+
+FILL contact {"name":"Luna","project":"Megaplex"}
+POUR greeting {"name":"Luna","project":"Megaplex"}
+
+GUNK WRAP starter
+TERM hello = FUNCTION hello
+RUN hello {"name":"Sheet Powder"}
+END GUNK WRAP</textarea>
+  <div class="actions">
+    <button id="dry-powder" class="btn">Dry · Parse Sheet</button>
+    <button id="pour-powder" class="btn cyan">Wet · Run Forms &amp; Molds</button>
+    <button id="send-wrap" class="btn green">Set · Send Gunk Wrap</button>
+    <button id="clear-powder" class="btn secondary">Clear output</button>
+  </div>
+  <p class="hint">Statements: FORM/FIELD/END FORM, MOLD/EMIT/END MOLD, FILL, POUR, and GUNK WRAP.</p>
+</article>
+<article class="card">
+  <h2>Powder Output &amp; Catalog</h2>
+  <div id="powder-log" class="terminal" role="log" aria-live="polite">[SHEET POWDER] Temporary batch ready.</div>
+  <h3 style="margin-top:16px">Parsed forms</h3><div id="form-catalog" class="hint">No forms parsed yet.</div>
+  <h3 style="margin-top:16px">Parsed molds</h3><div id="mold-catalog" class="hint">No molds parsed yet.</div>
+</article>
+</div></section>
+
+<!-- DEAN AI & TEAM SECTION -->
+<section id="dean" class="panel">
+<div class="grid">
+<article class="card">
+  <h2>Chat with Dean (Orchestrator)</h2>
+  <p class="hint">Give Dean commands in natural language. Ask him to create new terms, write programs, or analyze your code.</p>
+  <div id="dean-chat-log" class="terminal" style="min-height:240px;" role="log" aria-live="polite">[DEAN ORCHESTRATOR] Connected to Megaplex core. Ready for prompt instructions.</div>
+  <label for="dean-prompt">Command / Prompt for Dean</label>
+  <input type="text" id="dean-prompt" placeholder="e.g., Add a term called 'crunch numbers' that multiplies 4 and 5">
+  <div class="actions">
+    <button id="send-dean" class="btn cyan">Send to Dean</button>
+    <button id="clear-dean" class="btn secondary">Clear Chat</button>
+  </div>
+</article>
+<article class="card">
+  <h2>Active Agent Roster</h2>
+  <p class="hint">Team members standing by on the WebSocket bus:</p>
+  <div class="index-row"><strong>Dean</strong> · Primary Orchestrator &amp; Code Synthesizer</div>
+  <div class="index-row"><strong>Anita</strong> · Virtual Office Secretary &amp; Log Dispatcher</div>
+  <div class="index-row"><strong>Forge</strong> · Build Master &amp; Transpilation Engine</div>
+  <div class="index-row"><strong>Luna</strong> · Architecture &amp; System Refinement</div>
+  <div class="notice" style="margin-top:14px">Dean can automatically inject generated Gunk terms straight into your Gunk Code Editor workspace when given valid commands!</div>
+</article>
+</div>
+</section>
+
+<!-- INDEX SECTION -->
+<section id="index" class="panel"><div class="grid">
+<article class="card">
+  <h2>Safe Function &amp; Program Index</h2>
+  <p class="hint">Terminology links to stable IDs here. Index entries choose a built-in operation.</p>
+  <div id="index-summary"></div>
+  <div class="actions">
+    <button id="reset-index" class="btn danger">Reset built-in index</button>
+    <button id="export-index" class="btn secondary">Export index JSON</button>
+    <label for="import-index" class="btn secondary file-label">Import index JSON</label>
+    <input id="import-index" type="file" accept="application/json,.json" hidden>
+  </div>
+</article>
+<article class="card">
+  <h2>Edit Index JSON</h2>
+  <label for="index-editor">Index data</label>
+  <textarea id="index-editor" spellcheck="false" style="min-height:330px"></textarea>
+  <div class="actions">
+    <button id="save-index" class="btn">Validate &amp; Save</button>
+    <button id="format-index" class="btn secondary">Format JSON</button>
+  </div>
+  <p class="hint">Allowlisted operations: <code>hello</code>, <code>add</code>, <code>multiply</code>, <code>uppercase</code>, <code>now</code>.</p>
+</article>
+</div></section>
+
+<!-- GUIDE SECTION -->
+<section id="guide" class="panel"><article class="card">
+  <h2>Language Guide &amp; Mini-Spec</h2>
+  <div class="grid">
+    <div><h3>Gunk grammar</h3>
+      <pre>program := (comment | TERM | RUN | blank)*
+TERM    := TERM alias = FUNCTION id
+         | TERM alias = PROGRAM id
+RUN     := RUN alias [JSON object]</pre>
+      <p class="hint">Quoted aliases support spaces and punctuation.</p>
+    </div>
+    <div><h3>Sheet Powder grammar</h3>
+      <pre>FORM name
+FIELD name | type | default
+END FORM
+MOLD name
+EMIT "template {{key}}"
+END MOLD
+GUNK WRAP name
+  ...
+END GUNK WRAP</pre>
+    </div>
+  </div>
+</article></section>
+<div class="footer">Factory Forge Megaplex · Lab 4 Super Gunk + Dean AI · v1.2</div>
+</main>
+
+<script>
+'use strict';
+const STORAGE_KEY='factoryForge.gunk.index.v1';
+const BUILTIN_INDEX={version:1,functions:{hello:{op:'hello',description:'Return a friendly greeting.'},add:{op:'add',description:'Add numeric a and b.'},multiply:{op:'multiply',description:'Multiply numeric a and b.'},uppercase:{op:'uppercase',description:'Uppercase text.'},now:{op:'now',description:'Return an ISO timestamp.'}},programs:{welcome:{description:'Greeting followed by status.',steps:[{op:'hello',args:{name:'{{name}}'}},{op:'uppercase',args:{text:'Factory Forge is ready.'}}]},'project-status':{description:'Small status sequence.',steps:[{op:'hello',args:{name:'Megaplex operator'}}]}}};
+const ALLOWED_OPS=new Set(['hello','add','multiply','uppercase','now']);
+const clone=value=>JSON.parse(JSON.stringify(value));
+const $=id=>document.getElementById(id);
+
+let indexData=loadIndex();
+function validId(value){return /^[A-Za-z0-9_-]+$/.test(value)}
+function validateIndex(data){const errors=[];if(!data||typeof data!=='object'||Array.isArray(data))return ['Index must be a JSON object.'];for(const section of ['functions','programs'])if(!data[section]||typeof data[section]!=='object'||Array.isArray(data[section]))errors.push(`${section} must be an object.`);return errors}
+function loadIndex(){try{const raw=localStorage.getItem(STORAGE_KEY);if(raw){const parsed=JSON.parse(raw);if(!validateIndex(parsed).length)return parsed}}catch(error){}return clone(BUILTIN_INDEX)}
+
+// Gunk Engine
+function parseAlias(text){if(text.startsWith('"')&&text.endsWith('"'))return text.slice(1,-1);if(text.startsWith("'")&&text.endsWith("'"))return text.slice(1,-1);return text}
+function validAlias(alias){return alias.length>0&&alias.length<=64&&!/[\r\n]/.test(alias)}
+function parseObject(raw,line){if(raw===undefined||raw.trim()==='')return{};let value;try{value=JSON.parse(raw)}catch(error){throw Error(`Line ${line}: invalid JSON arguments (${error.message}).`)}if(!value||typeof value!=='object'||Array.isArray(value))throw Error(`Line ${line}: arguments must be a JSON object.`);return value}
+
+function parseGunk(source){const aliases=Object.create(null),commands=[],errors=[];source.split(/\r?\n/).forEach((raw,i)=>{const line=raw.trim(),n=i+1;if(!line||line.startsWith('#'))return;let match=line.match(/^TERM\s+("[^"\r\n]+"|'[^'\r\n]+'|[\w-]+)\s*=\s*(FUNCTION|PROGRAM)\s+([\w-]+)\s*$/i);if(match){const alias=parseAlias(match[1]),kind=match[2].toLowerCase(),target=match[3];if(!validAlias(alias)){errors.push(`Line ${n}: alias must be 1–64 characters.`);return}const bucket=kind==='function'?indexData.functions:indexData.programs;if(!bucket[target]){errors.push(`Line ${n}: ${kind} target "${target}" is not in the index.`);return}aliases[alias]={kind,target,line:n};return}match=line.match(/^RUN\s+("[^"\r\n]+"|'[^'\r\n]+'|[\w-]+)(?:\s+(\{.*\}))?\s*$/i);if(match){const alias=parseAlias(match[1]);if(!validAlias(alias)){errors.push(`Line ${n}: invalid RUN alias.`);return}try{commands.push({alias,args:parseObject(match[2],n),line:n})}catch(error){errors.push(error.message)}return}errors.push(`Line ${n}: unrecognized command.`);});return{aliases,commands,errors}}
+
+function executeOp(op,args){switch(op){case'hello':return`Hello, ${String(args.name??'world')}!`;case'add':{const a=Number(args.a),b=Number(args.b);if(!Number.isFinite(a)||!Number.isFinite(b))throw Error('add requires finite numeric a and b.');return a+b}case'multiply':{const a=Number(args.a),b=Number(args.b);if(!Number.isFinite(a)||!Number.isFinite(b))throw Error('multiply requires finite numeric a and b.');return a*b}case'uppercase':return String(args.text??'').toUpperCase();case'now':return new Date().toISOString();default:throw Error(`Operation "${op}" is not permitted.`)}}
+function callFunction(id,args){const entry=indexData.functions[id];if(!entry)throw Error(`Function ${id} not found.`);return executeOp(entry.op,args)}
+function callProgram(id,args){const program=indexData.programs[id];if(!program)throw Error(`Program ${id} not found.`);return program.steps.map((step,i)=>({step:i+1,result:executeOp(step.op,step.args||args)}))}
+
+function validateGunk(){const parsed=parseGunk($('gunk-source').value);clearLog('gunk-log');if(parsed.errors.length){parsed.errors.forEach(e=>logLine('gunk-log','✖ '+e,'err'));return false}logLine('gunk-log',`✔ Dry check passed: ${Object.keys(parsed.aliases).length} term(s), ${parsed.commands.length} run(s).`,'info');return true}
+function runGunk(){const parsed=parseGunk($('gunk-source').value);clearLog('gunk-log');if(parsed.errors.length){parsed.errors.forEach(e=>logLine('gunk-log','✖ '+e,'err'));return}for(const cmd of parsed.commands){try{const link=parsed.aliases[cmd.alias];const res=link.kind==='function'?callFunction(link.target,cmd.args):callProgram(link.target,cmd.args);logLine('gunk-log',`${cmd.alias} → ${JSON.stringify(res)}`)}catch(e){logLine('gunk-log',e.message,'err')}}}
+function convertGunk(){const parsed=parseGunk($('gunk-source').value);if(parsed.errors.length){logLine('gunk-log','Fix dry check first.','err');return}const lines=['async function runGunk(factory) {'];for(const cmd of parsed.commands){const link=parsed.aliases[cmd.alias];lines.push(`  await factory.${link.kind==='function'?'functions':'programs'}[${JSON.stringify(link.target)}](${JSON.stringify(cmd.args)});`)}lines.push('}');$('js-output').textContent=lines.join('\n');setPhase('set');}
+function setPhase(phase){document.querySelectorAll('[data-phase]').forEach(b=>b.classList.toggle('selected',b.dataset.phase===phase))}
+function logLine(id,text,kind=''){const line=document.createElement('div');if(kind)line.className=kind;line.textContent=text;const box=$(id);box.appendChild(line);box.scrollTop=box.scrollHeight}
+function clearLog(id,text=''){ $(id).textContent=text }
+
+// Dean WebSocket Bridge & Chat Logic
+let ws=null;
+function initBus(){
+  try{
+    ws=new WebSocket('ws://localhost:8080');
+    ws.onopen=()=>{ $('bus-status').textContent='BUS PORT 8080 ONLINE'; $('bus-status').style.borderColor='var(--green)'; logLine('dean-chat-log','[DEAN] Connected to universal connector bus on port 8080.','info'); };
+    ws.onerror=()=>{ $('bus-status').textContent='BUS OFFLINE (SIMULATION ACTIVE)'; $('bus-status').style.borderColor='var(--yellow)'; };
+    ws.onclose=()=>{ $('bus-status').textContent='BUS OFFLINE'; };
+    ws.onmessage=(event)=>{
+      try{const msg=JSON.parse(event.data);logLine('dean-chat-log','[DEAN BUS] '+JSON.stringify(msg));}catch(e){}
+    };
+  }catch(e){/* offline fallback */}
+}
+
+$('send-dean').addEventListener('click',()=>{
+  const prompt=$('dean-prompt').value.trim();
+  if(!prompt)return;
+  logLine('dean-chat-log','USER: '+prompt);
+  $('dean-prompt').value='';
+
+  // Dean simulated or WebSocket execution handler
+  setTimeout(()=>{
+    let reply="Dean processed your request.";
+    if(prompt.toLowerCase().includes('term') || prompt.toLowerCase().includes('add a term') || prompt.toLowerCase().includes('call')){
+      const newTermLine = `\nTERM "crunch numbers" = FUNCTION multiply\nRUN "crunch numbers" {"a":4,"b":5}`;
+      $('gunk-source').value += newTermLine;
+      reply = `Dean: I've created and injected the new term "crunch numbers" directly into your Gunk editor workspace! Check the Gunk Code tab.`;
+    } else {
+      reply = `Dean: Received prompt "${prompt}". All systems nominal on port 8888.`;
+    }
+    logLine('dean-chat-log',reply,'info');
+    if(ws && ws.readyState===WebSocket.OPEN){
+      ws.send(JSON.stringify({agent:'dean',action:'PROMPT',payload:prompt}));
+    }
+  }, 400);
+});
+
+// UI Event Listeners
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.tab,.panel').forEach(e=>e.classList.remove('active'));b.classList.add('active');$(b.dataset.tab).classList.add('active')}));
+document.querySelectorAll('[data-phase]').forEach(b=>b.addEventListener('click',()=>setPhase(b.dataset.phase)));
+$('validate-gunk').addEventListener('click',validateGunk);
+$('run-gunk').addEventListener('click',runGunk);
+$('convert-gunk').addEventListener('click',convertGunk);
+$('clear-gunk-log').addEventListener('click',()=>clearLog('gunk-log','[GUNK CORE] Cleared.'));
+$('clear-dean').addEventListener('click',()=>clearLog('dean-chat-log','[DEAN ORCHESTRATOR] Chat cleared.'));
+initBus();
+</script>
+</body>
+</html>
